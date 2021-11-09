@@ -55,6 +55,7 @@ if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                         e.HumanoidRootPart.CanCollide = false
                         v.HumanoidRootPart.Size = Vector3.new(35,10,35)
                         e.HumanoidRootPart.Size = Vector3.new(35,10,35)
+                        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)
                     end 
                 end
@@ -73,8 +74,8 @@ function AutoEquip()
 end
 
 function nocamshake()
-    kkii = require(game.ReplicatedStorage.Util.CameraShaker)
-        kkii:Stop()
+    local cam = require(game.ReplicatedStorage.Util.CameraShaker)
+        cam:Stop()
 end
 
 function AutoClick()
@@ -124,7 +125,6 @@ MainSection:CreateToggle("Auto Farm Bones", function(f)
 
     spawn(function()
         CheckQuest()
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
             while _G.AutoFarm_Bones do wait()
                 AutoBuso()
                 AutoQuest()
