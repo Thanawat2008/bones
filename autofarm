@@ -1,5 +1,6 @@
 -- Coasting UI Lib by : https://v3rmillion.net/member.php?action=profile&uid=1393756
 -- Release thread here : https://v3rmillion.net/showthread.php?tid=1071849&pid=7590441
+
 repeat wait()
 until game:IsLoaded()
 
@@ -54,10 +55,7 @@ if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                     e.HumanoidRootPart.CanCollide = false
                     v.HumanoidRootPart.Size = Vector3.new(35,10,35)
                     e.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.1,Enum.EasingStyle.Linear)
-                    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)})
-                    tween:Play()
-                end
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)})
             end
         end
     end
