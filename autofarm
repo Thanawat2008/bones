@@ -27,7 +27,9 @@ end
 function AutoQuest()
     local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
         if q.Visible == false then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lctQuest
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.1,Enum.EasingStyle.Quart)
+            tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
+            tween:Play()
             wait(1)
                 local quest = {
                     [1] = S,
