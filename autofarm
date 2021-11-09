@@ -131,15 +131,13 @@ MainSection:CreateToggle("Auto Farm Bones", function(f)
                 TP2()
                 AutoClick()
                 nocamshake()
+                AutoEquip()
             end
     end)
 end)
 
 ConfigSection:CreateDropdown("Select Weapon", weapon, 1, function(selectw)
    _G.Select_Weapon = selectw
-       while _G.AutoFarm_Bones do wait()
-           AutoEquip()
-       end
 end)
 
 ConfigSection:CreateButton("Refresh Weapon", function()
