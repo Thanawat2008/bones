@@ -44,6 +44,7 @@ end
 function TP2()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
 if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+    wait(1)
     pcall(function()
     for i, v in pairs(mob) do
         for l, e in pairs(mob) do
