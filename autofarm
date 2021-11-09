@@ -27,10 +27,8 @@ end
 function AutoQuest()
     local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
         if q.Visible == false then
-            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.5,Enum.EasingStyle.Quart)
-            tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
-            tween:Play()
-            wait(2)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lctQuest
+            wait(1)
                 local quest = {
                     [1] = S,
                     [2] = Quest,
@@ -54,7 +52,7 @@ if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                     e.HumanoidRootPart.CanCollide = false
                     v.HumanoidRootPart.Size = Vector3.new(35,10,35)
                     e.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.3,Enum.EasingStyle.Quart)
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.1,Enum.EasingStyle.Quart)
                     tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)})
                     tween:Play()
                 end
