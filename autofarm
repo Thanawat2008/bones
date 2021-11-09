@@ -27,7 +27,7 @@ end
 function AutoQuest()
     local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
         if q.Visible == false then
-            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.1,Enum.EasingStyle.Quart)
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.3,Enum.EasingStyle.Quart)
             tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
             tween:Play()
             wait(1)
@@ -44,7 +44,6 @@ end
 function TP2()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
 if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-    wait(1)
     pcall(function()
     for i, v in pairs(mob) do
         for l, e in pairs(mob) do
