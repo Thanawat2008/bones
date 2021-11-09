@@ -1,0 +1,208 @@
+--Coasting UI Lib by : https://v3rmillion.net/member.php?action=profile&uid=1393756
+--Release thread here : https://v3rmillion.net/showthread.php?tid=1071849&pid=7590441
+
+if game.PlaceId ~= 2753915549 then
+    game.Players.LocalPlayer:Kick("You need to go to First Sea!")
+end
+
+weapon = {}
+
+for a, i in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    table.insert(weapon, i.Name)
+end
+
+function CheckQuest()
+    local lv = game.Players.LocalPlayer.Data.Level.Value
+        if lv == 1 or lv <= 2100 then
+            Mob = "Bandit [Lv. 5]"
+            Quest = "BanditQuest1"
+            LvlQuest = 1
+            S = "StartQuest"
+            lctQuest = CFrame.new(1060.1729736328, 16.455062866211, 1547.5668945313)
+        end
+end
+
+function AutoQuest()
+    local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+        if q.Visible == false then
+            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.5,Enum.EasingStyle.Quart)
+            tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
+            tween:Play()
+            wait(2)
+                local quest = {
+                    [1] = S,
+                    [2] = Quest,
+                    [3] = LvlQuest,
+                    [4] = 1
+}
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(quest))
+        end
+end
+
+function TP2()
+local mob = game:GetService("Workspace").Enemies:GetChildren()
+if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+    pcall(function()
+    for i, v in pairs(mob) do
+        for l, e in pairs(mob) do
+            if v.Name == Mob then
+                if e.Name == Mob then
+                    e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                    e.HumanoidRootPart.CanCollide = false
+                    v.HumanoidRootPart.Size = Vector3.new(35,10,35)
+                    e.HumanoidRootPart.Size = Vector3.new(35,10,35)
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.3,Enum.EasingStyle.Quart)
+                    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)})
+                    tween:Play()
+                end
+            end
+        end
+    end
+    end)
+end
+end
+
+function AutoEquip()
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(_G.Select_Weapon) then
+        local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(_G.Select_Weapon)
+        wait(.4)
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
+    end
+end
+
+function nocamshake()
+    kkii = require(game.ReplicatedStorage.Util.CameraShaker)
+        kkii:Stop()
+end
+
+function AutoClick()
+local VU = game:GetService('VirtualUser')
+local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+    if q.Visible == true then
+            VU:CaptureController()
+            VU:Button1Down(Vector2.new(1280, 672))
+    end
+end
+
+function AutoBuso()
+    if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+        else
+            local args = {
+                [1] = "Buso"
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+end
+
+function AutoStats()
+    local args = {
+        [1] = "AddPoint",
+        [2] = _G.Stats,
+        [3] = _G.PointStats
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+
+local CoastingLibrary = loadstring(game:HttpGet("https://pastebin.com/raw/3gQQtaKX"))()
+
+local AimbotTab = CoastingLibrary:CreateTab("AUTOFARM")
+local AimbotTab1 = CoastingLibrary:CreateTab("AUTOSTATS")
+local MainSection = AimbotTab:CreateSection("Main")
+local ConfigSection = AimbotTab:CreateSection("Weapon")
+local MainSection1 = AimbotTab1:CreateSection("Auto Stats")
+local ConfigSection1 = AimbotTab1:CreateSection("Points")
+
+
+MainSection:CreateToggle("Auto Farm Bones", function(f)
+   _G.AutoFarm_Bones = f
+
+    spawn(function()
+        CheckQuest()
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+            while _G.AutoFarm_Bones do wait()
+                AutoBuso()
+                AutoQuest()
+                TP2()
+                AutoClick()
+                nocamshake()
+            end
+    end)
+end)
+
+ConfigSection:CreateDropdown("Select Weapon", weapon, 1, function(selectw)
+   _G.Select_Weapon = selectw
+    while _G.Select_Weapon do wait()
+        AutoEquip()
+    end
+end)
+
+MainSection1:CreateToggle("Melee", function(e)
+_G.Point = e
+while _G.Point do wait()
+    local args = {
+        [1] = "AddPoint",
+        [2] = "Melee",
+        [3] = point
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+end)
+
+MainSection1:CreateToggle("Defense", function(a)
+_G.Point = a
+while _G.Point do wait()
+    local args = {
+        [1] = "AddPoint",
+        [2] = "Defense",
+        [3] = point
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+end)
+
+MainSection1:CreateToggle("Sword", function(c)
+_G.Point = c
+while _G.Point do wait()
+    local args = {
+        [1] = "AddPoint",
+        [2] = "Sword",
+        [3] = point
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+end)
+
+MainSection1:CreateToggle("Gun", function(w)
+_G.Point = w
+while _G.Point do wait()
+    local args = {
+        [1] = "AddPoint",
+        [2] = "Gun",
+        [3] = point
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+end)
+
+MainSection1:CreateToggle("Blox Fruit", function(z)
+_G.Point = z
+while _G.Point do wait()
+    local args = {
+        [1] = "AddPoint",
+        [2] = "Blox Fruit",
+        [3] = point
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end
+end)
+
+ConfigSection1:CreateSlider("Auto Stat Cost", 1, 150, 1, false, function(value)
+   point = value
+end)
