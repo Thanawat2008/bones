@@ -46,19 +46,20 @@ function TP2()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
 if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
     pcall(function()
-    for i, v in pairs(mob) do
-        for l, e in pairs(mob) do
-            if v.Name == Mob then
-                if e.Name == Mob then
-                    e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                    e.HumanoidRootPart.CanCollide = false
-                    v.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                    e.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)})
+        for i, v in pairs(mob) do
+            for l, e in pairs(mob) do
+                if v.Name == Mob then
+                    if e.Name == Mob then
+                        e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                        e.HumanoidRootPart.CanCollide = false
+                        v.HumanoidRootPart.Size = Vector3.new(35,10,35)
+                        e.HumanoidRootPart.Size = Vector3.new(35,10,35)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)
+                    end 
+                end
             end
         end
-    end
     end)
 end
 end
