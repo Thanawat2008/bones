@@ -135,7 +135,7 @@ MainSection:CreateToggle("Auto Farm Bones", function(f)
     end)
 end)
 
-ConfigSection:CreateDropdown("Select Weapon", weapon, nil, function(selectw)
+ConfigSection:CreateDropdown("Select Weapon", weapon, 0, function(selectw)
    _G.Select_Weapon = selectw
        while _G.AutoFarm_Bones do wait()
            AutoEquip()
