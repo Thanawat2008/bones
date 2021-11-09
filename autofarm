@@ -135,11 +135,18 @@ MainSection:CreateToggle("Auto Farm Bones", function(f)
     end)
 end)
 
-ConfigSection:CreateDropdown("Select Weapon", weapon, 1, function(selectw)
+ConfigSection:CreateDropdown("Select Weapon", weapon, nil, function(selectw)
    _G.Select_Weapon = selectw
-    while _G.Select_Weapon do wait()
-        AutoEquip()
-    end
+       while _G.AutoFarm_Bones do wait()
+           AutoEquip()
+       end
+end)
+
+ConfigSection:CreateButton("Refresh Weapon", function()
+    table.clear(weapon)
+        for a, i in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            table.insert(weapon, i.Name)
+        end
 end)
 
 MainSection1:CreateToggle("Melee", function(e)
