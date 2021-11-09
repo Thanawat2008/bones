@@ -111,10 +111,13 @@ local CoastingLibrary = loadstring(game:HttpGet("https://pastebin.com/raw/3gQQta
 
 local AimbotTab = CoastingLibrary:CreateTab("AUTOFARM")
 local AimbotTab1 = CoastingLibrary:CreateTab("AUTOSTATS")
+local AimbotTab2 = CoastingLibrary:CreateTab("MISC")
 local MainSection = AimbotTab:CreateSection("Main")
 local ConfigSection = AimbotTab:CreateSection("Weapon")
 local MainSection1 = AimbotTab1:CreateSection("Auto Stats")
 local ConfigSection1 = AimbotTab1:CreateSection("Points")
+local Halloween = AimbotTab2:CreateSection("Halloween")
+local Fruits = AimbotTab2:CreateSection("Fruits")
 
 
 MainSection:CreateToggle("Auto Farm Bones", function(f)
@@ -207,4 +210,50 @@ end)
 
 ConfigSection1:CreateSlider("Auto Stat Cost", 1, 150, 1, false, function(value)
    point = value
+end)
+
+Halloween:CreateToggle("Auto Random Surprise", function(bones)
+    _G.Auto_Random_Surprise = bones
+    while _G.Auto_Random_Surprise do wait()
+        local bones = {
+            [1] = "Bones",
+            [2] = "Buy",
+            [3] = 1,
+            [4] = 1
+        }
+
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))
+    end
+end)
+
+Halloween:CreateButton("Random Surprise", function()
+        local bones = {
+            [1] = "Bones",
+            [2] = "Buy",
+            [3] = 1,
+            [4] = 1
+        }
+
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))    
+end)
+
+Fruits:CreateToggle("Auto Random Fruits", function(fruit)
+    _G.Auto_Random_Fruits = fruit
+    while _G.Auto_Random_Fruits do wait()
+        local random = {
+            [1] = "Cousin",
+            [2] = "Buy",
+            [3] = 1
+    }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(random))
+    end
+end)
+
+Fruits:CreateButton("Random Fruit", function()
+        local random = {
+            [1] = "Cousin",
+            [2] = "Buy",
+            [3] = 1
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(random))  
 end)
