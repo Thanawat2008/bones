@@ -1,75 +1,276 @@
+-- Cr. Balance Tween : @𝕩𝔻𝕖𝕡𝕣𝕖𝕤𝕤𝕚𝕠𝕟𝕩#6481
+-- Cr. Quest and Position Quest : Chiwawa#9765
+
 repeat wait()
-until game:IsLoaded()
+    until game:IsLoaded()
 
-if game.PlaceId ~= 2753915549 then
-    game.Players.LocalPlayer:Kick("You must go to First Sea!")
+    local world = game.PlaceId
+        if world == 2753915549 then
+            world1 = true
+        elseif world == 4442272183 then
+            world2 = true
+        elseif world == 7449423635 then
+            world3 = true
+        end
+
+function click()
+    local vu = game:GetService'VirtualUser'
+    local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+    if q.Visible == true then
+        vu:CaptureController()
+        vu:Button1Down(Vector2.new(1280, 672))
+    end
 end
 
-weapon = {}
-
-for a, i in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-    table.insert(weapon, i.Name)
-end
-
-function CheckQuest()
+function checkquest()
     local lv = game.Players.LocalPlayer.Data.Level.Value
-        if lv == 1 or lv <= 2100 then
+    local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+    if world1 then
+        if lv == 1 or lv <= 9 then
             Mob = "Bandit [Lv. 5]"
             Quest = "BanditQuest1"
-            LvlQuest = 1
+            LvQuest = 1
             S = "StartQuest"
-            lctQuest = CFrame.new(1060.1729736328, 16.455062866211, 1547.5668945313)
-            lctRest = CFrame.new(1092.85913, 65.8897629, 1612.79529, 0.999982774, -3.47490818e-08, -0.00586987333, 3.48520111e-08, 1, 1.74323596e-08, 0.00586987333, -1.76366353e-08, 0.999982774)
+            lctQuest = CFrame.new(1061.66699, 16.5166187, 1544.52905, -0.942978859, -3.33851502e-09, 0.332852632, 7.04340497e-09, 1, 2.99841325e-08, -0.332852632, 3.06188177e-08, -0.942978859)
+            posQuest = Vector3.new(1061.66699, 16.5166187, 1544.52905, -0.942978859, -3.33851502e-09, 0.332852632, 7.04340497e-09, 1, 2.99841325e-08, -0.332852632, 3.06188177e-08, -0.942978859)
+        elseif lv == 10 or lv <= 14 then
+            Mob = "Monkey [Lv. 14]"
+            Quest = "JungleQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            lctQuest = CFrame.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+            posQuest = Vector3.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+        elseif lv == 15 or lv <= 29 then
+            Mob = "Gorilla [Lv. 20]"
+            Quest = "JungleQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+            lctQuest = CFrame.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
+        elseif lv == 30 or lv <= 39 then
+            Mob = "Pirate [Lv. 35]"
+            Quest = "BuggyQuest1"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+            lctQuest = CFrame.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+        elseif lv == 40 or lv <= 59 then
+            Mob = "Brute [Lv. 45]"
+            Quest = "BuggyQuest1"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+            lctQuest = CFrame.new(-1139.59717, 4.75205183, 3825.16211, -0.959730506, -7.5857054e-09, 0.280922383, -4.06310328e-08, 1, -1.11807175e-07, -0.280922383, -1.18718916e-07, -0.959730506)
+        elseif lv == 60 or lv <= 74 then
+            Mob = "Desert Bandit [Lv. 60]"
+            Quest = "DesertQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+            lctQuest = CFrame.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+        elseif lv == 75 or lv <= 89 then
+            Mob = "Desert Officer [Lv. 70]"
+            Quest = "DesertQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+            lctQuest = CFrame.new(897.031128, 6.43846416, 4388.97168, -0.804044724, 3.68233266e-08, 0.594568789, 6.97835176e-08, 1, 3.24365246e-08, -0.594568789, 6.75715199e-08, -0.804044724)
+        elseif lv == 90 or lv <= 99 then
+            Mob = "Snow Bandit [Lv. 90]"
+            Quest = "SnowQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+            lctQuest = CFrame.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+        elseif lv == 100 or lv <= 119 then
+            Mob = "Snowman [Lv. 100]"
+            Quest = "SnowQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+            lctQuest = CFrame.new(1384.14001, 87.272789, -1297.06482, 0.348555952, -2.53947841e-09, -0.937287986, 1.49860568e-08, 1, 2.86358204e-09, 0.937287986, -1.50443711e-08, 0.348555952)
+        elseif lv == 120 or lv <= 149 then
+            Mob = "Chief Petty Officer [Lv. 120]"
+            Quest = "MarineQuest2"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-5035.0835, 28.6520386, 4325.29443, 0.0243340395, -7.08064647e-08, 0.999703884, -6.36926814e-08, 1, 7.23777944e-08, -0.999703884, -6.54350671e-08, 0.0243340395)
+            lctQuest = CFrame.new(-5035.0835, 28.6520386, 4325.29443, 0.0243340395, -7.08064647e-08, 0.999703884, -6.36926814e-08, 1, 7.23777944e-08, -0.999703884, -6.54350671e-08, 0.0243340395)
+        elseif lv == 150 or lv <= 174 then
+            Mob = "Sky Bandit [Lv. 150]"
+            Quest = "SkyQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+            lctQuest = CFrame.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+        elseif lv == 175 or lv <= 224 then
+            Mob = "Dark Master [Lv. 175]"
+            Quest = "SkyQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+            lctQuest = CFrame.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
+        elseif lv == 225 or lv <= 274 then
+            Mob = "Toga Warrior [Lv. 225]"
+            Quest = "ColosseumQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+            lctQuest =  CFrame.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+        elseif lv == 275 or lv <= 299 then
+            Mob = "Gladiator [Lv. 275]"
+            Quest = "ColosseumQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+            lctQuest = CFrame.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
+        elseif lv == 300 or lv <= 329 then
+            Mob = "Military Soldier [Lv. 300]"
+            Quest = "MagmaQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+            lctQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+        elseif lv == 330 or lv <= 374 then
+            Mob = "Military Spy [Lv. 330]"
+            Quest = "MagmaQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+            lctQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
+        elseif lv == 375 or lv <= 399 then
+            Mob = "Fishman Warrior [Lv. 375]"
+            Quest = "FishmanQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
+            lctQuest = CFrame.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
+        elseif lv == 400 or lv <= 449 then
+            Mob = "Fishman Commando [Lv. 400]"
+            Quest = "FishmanQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
+            lctQuest = CFrame.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
+        elseif lv == 450 or lv <= 474 then
+            Mob = "God's Guard [Lv. 450]"
+            Quest = "SkyExp1Quest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-4721.71436, 845.277161, -1954.20105, -0.999277651, -5.56969759e-09, 0.0380011722, -4.14751478e-09, 1, 3.75035256e-08, -0.0380011722, 3.73188307e-08, -0.999277651)
+            lctQuest = CFrame.new(-4721.71436, 845.277161, -1954.20105, -0.999277651, -5.56969759e-09, 0.0380011722, -4.14751478e-09, 1, 3.75035256e-08, -0.0380011722, 3.73188307e-08, -0.999277651)
+        elseif lv == 475 or lv <= 524 then
+            Mob = "Shanda [Lv. 475]"
+            Quest = "SkyExp1Quest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-7863.63672, 5545.49316, -379.826324, 0.362120807, -1.98046344e-08, -0.93213129, 4.05822291e-08, 1, -5.48095125e-09, 0.93213129, -3.58431969e-08, 0.362120807)
+            lctQuest = CFrame.new(-7863.63672, 5545.49316, -379.826324, 0.362120807, -1.98046344e-08, -0.93213129, 4.05822291e-08, 1, -5.48095125e-09, 0.93213129, -3.58431969e-08, 0.362120807)
+        elseif lv == 525 or lv <= 549 then
+            Mob = "Royal Squad [Lv. 525]"
+            Quest = "SkyExp2Quest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+            lctQuest = CFrame.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+        elseif lv == 550 or lv <= 624 then
+            Mob = "Royal Soldier [Lv. 550]"
+            Quest = "SkyExp2Quest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+            lctQuest = CFrame.new(-7902.66895, 5635.96387, -1411.71802, 0.0504222959, 2.5710392e-08, 0.998727977, 1.12541557e-07, 1, -3.14249675e-08, -0.998727977, 1.13982921e-07, 0.0504222959)
+        elseif lv == 625 or lv <= 649 then
+            Mob = "Galley Pirate [Lv. 625]"
+            Quest = "FountainQuest"
+            LvQuest = 1
+            S = "StartQuest"
+            posQuest = Vector3.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
+            lctQuest = CFrame.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
+        elseif lv >= 650 then
+            Mob = "Galley Captain [Lv. 650]"
+            Quest = "FountainQuest"
+            LvQuest = 2
+            S = "StartQuest"
+            posQuest = Vector3.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
+            lctQuest = CFrame.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
         end
+    end
 end
 
-function AutoQuest()
-    local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+checkquest()
+
+function TP(P1,P2)
+checkquest()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 250 then
+        Speed = 25000
+    elseif Distance >= 250 then
+        Speed = 250
+    end
+    local cooldown = Distance/Speed
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = P2}
+    ):Play()
+end
+
+function autoQ()
+local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+    checkquest()
         if q.Visible == false then
-                tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.3,Enum.EasingStyle.Linear)
-                tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
-                tween:Play()
-                wait(1.5)
-                    local quest = {
+            pcall(function()
+            TP(posQuest, lctQuest)
+                if game.Players.LocalPlayer.Character.HumanoidRootPart.Position == posQuest then
+                    wait(.5)
+                    local args = {
                         [1] = S,
                         [2] = Quest,
-                        [3] = LvlQuest,
-                        [4] = 1
-    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(quest))
+                        [3] = LvQuest
+                    }
+
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+            end)
+
         end
 end
 
-function TP2()
+function Mobs()
 local mob = game:GetService("Workspace").Enemies:GetChildren()
 if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
     pcall(function()
     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-        for i, v in pairs(mob) do
-            for l, e in pairs(mob) do
-                if v.Name == Mob then
-                    if e.Name == Mob then
-                        e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                        e.HumanoidRootPart.CanCollide = false
-                        v.Humanoid.WalkSpeed = 1
-                        e.Humanoid.WalkSpeed = 1
-                        v.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                        e.HumanoidRootPart.Size = Vector3.new(35,10,35)
-                            if Modes == 1 then
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,20)
-                            elseif Modes == 2 then
-                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,20,0)
+            for i, v in pairs(mob) do
+                for l, e in pairs(mob) do
+                        if v.Name == Mob then
+                            if e.Name == Mob then
+                                    e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                    e.HumanoidRootPart.CanCollide = false
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 1
+                                    e.Humanoid.WalkSpeed = 1
+                                    v.HumanoidRootPart.Size = Vector3.new(100,100,100)
+                                    e.HumanoidRootPart.Size = Vector3.new(100,100,100)
+                                    TP(v.HumanoidRootPart.Position, v.HumanoidRootPart.CFrame * CFrame.new(0,20,20))
                             end
-                                if v.Humanoid.Health == 0 or e.Humanoid.Health == 0 then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lctRest
-                                end
-                    end 
+                        end
                 end
             end
-        end
     end)
 end
+end
+
+function Mobs2()
+    local mob2 = game:GetService("ReplicatedStorage"):GetChildren()
+        for ii, vv in pairs(mob2) do
+            if vv.Name == Mob then
+                TP(vv.HumanoidRootPart.Position, vv.HumanoidRootPart.CFrame * CFrame.new(0,20,20))
+            end
+        end
 end
 
 function AutoEquip()
@@ -80,138 +281,52 @@ function AutoEquip()
     end
 end
 
-function nocamshake()
+spawn(function()
     local cam = require(game.ReplicatedStorage.Util.CameraShaker)
         cam:Stop()
+end)
+
+function ABuso()
+    while _G.AutoFarm do wait()
+        if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+            else
+                local args = {
+                    [1] = "Buso"
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        end
+    end
 end
 
-function AutoClick()
-local VU = game:GetService('VirtualUser')
+spawn(function()
+    while _G.AutoFarm do wait()
+        local args = {
+            [1] = "AddPoint",
+            [2] = "Melee",
+            [3] = 1
+        }
+
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end
+end)
+
+function antiTP()
 local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
-    if q.Visible == true then
-            VU:CaptureController()
-            VU:Button1Down(Vector2.new(1280, 672))
+    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+        v.Humanoid.Health = 0
+        wait(2)
+        q.Visible = false
     end
 end
 
-function AutoBuso()
-    if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-        else
-            local args = {
-                [1] = "Buso"
-            }
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-    end
+while _G.AutoFarm do wait()
+    pcall(function()
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        ABuso()
+        AutoEquip()
+        Mobs()
+        Mobs2()
+        autoQ()
+        click()
+    end)
 end
-
-function AutoStats()
-    local args = {
-        [1] = "AddPoint",
-        [2] = _G.Stats,
-        [3] = _G.PointStats
-    }
-
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-end
-
---Made by : https://v3rmillion.net/member.php?action=profile&uid=244024
--- init
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))() --someone reuploaded it so I put it in place of the original back up so guy can get free credit.
-local venyx = library.new("TNW HUB | BLOX FRUITS", 0)
-
--- themes
-local themes = {
-Background = Color3.fromRGB(24, 24, 24),
-Glow = Color3.fromRGB(0, 0, 0),
-Accent = Color3.fromRGB(10, 10, 10),
-LightContrast = Color3.fromRGB(20, 20, 20),
-DarkContrast = Color3.fromRGB(14, 14, 14),  
-TextColor = Color3.fromRGB(255, 255, 255)
-}
-
--- first page
-local page = venyx:addPage("Auto Farm", 0)
-local section1 = page:addSection("Main")
-section1:addToggle("Auto Farm Bones", nil, function(farm)
-    _G.AutoFarm_Bones = farm
-        CheckQuest()
-            while _G.AutoFarm_Bones do wait()
-                pcall(function()
-                    AutoBuso()
-                    AutoQuest()
-                    AutoEquip()
-                    nocamshake()
-                    TP2()
-                    AutoClick()
-                end)
-            end
-end)
-section1:addDropdown("Select Weapon", weapon, function(weapon)
-pcall(function()
-   _G.Select_Weapon = weapon
-end)
-end)
-section1:addButton("Refresh", function()
-pcall(function()
-    table.clear(weapon)
-        for a, i in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            table.insert(weapon, i.Name)
-        end
-end)
-end)
-section1:addSlider("Modes ( 1 : Behind / 2 : Over ) ( Pick before auto farm )", 0, 1, 2, function(modes)
-    Modes = modes
-        TP2()
-end)
-
-local page2 = venyx:addPage("Fruits", 0)
-local section21 = page2:addSection("Random Fruits")
-section21:addToggle("Auto Random Fruits", nil, function(atrandomf)
-    _G.RandomF = atrandomf
-        while _G.RandomF do wait()
-            local randomf = {
-                [1] = "Cousin",
-                [2] = "Buy"
-            }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(randomf))
-        end
-end)
-section21:addButton("Random Fruit", function()
-    local randomf = {
-            [1] = "Cousin",
-            [2] = "Buy"
-        }
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(randomf))
-end)
-
-local page3 = venyx:addPage("Event", 0)
-local sectionpage31 = page3:addSection("Halloween")
-sectionpage31:addToggle("Auto Random Surprises", nil, function(hal)
-    _G.Bones = hal
-        while _G.Bones do wait()
-            local bones = {
-                [1] = "Bones",
-                [2] = "Buy",
-                [3] = 1,
-                [4] = 1
-            }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))
-        end
-end)
-sectionpage31:addButton("Random Surprise", function()
-        local bones = {
-            [1] = "Bones",
-            [2] = "Buy",
-            [3] = 1,
-            [4] = 1
-        }
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))
-end)
-
-local page5 = venyx:addPage("Settings", 0)
-local sectionpage51 = page5:addSection("Toggle Keybind")
-sectionpage51:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
-    venyx:toggle()
-end, function()
-    print("Change")
-end)
