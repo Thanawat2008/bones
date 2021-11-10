@@ -160,9 +160,33 @@ section1:addSlider("Modes ( 1 : Behind / 2 : Over ) ( Pick before auto farm )", 
         TP2()
 end)
 
-local page2 = venyx:addPage("Settings", 0)
-local section3 = page2:addSection("Toggle Keybind")
-section3:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+local page2 = venyx:addPage("Event", 0)
+local sectionpage21 = page2:addSection("Halloween")
+sectionpage21:addToggle("Auto Random Surprises", nil, function(hal)
+    _G.Bones = hal
+        while _G.Bones do wait()
+            local bones = {
+                [1] = "Bones",
+                [2] = "Buy",
+                [3] = 1,
+                [4] = 1
+            }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))
+        end
+end)
+sectionpage21:addButton("Random Surprise", function()
+        local bones = {
+            [1] = "Bones",
+            [2] = "Buy",
+            [3] = 1,
+            [4] = 1
+        }
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(bones))
+end)
+
+local page3 = venyx:addPage("Settings", 0)
+local sectionpage31 = page3:addSection("Toggle Keybind")
+sectionpage31:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
     venyx:toggle()
 end, function()
     print("Change")
