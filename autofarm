@@ -29,7 +29,7 @@ function AutoQuest()
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.3,Enum.EasingStyle.Quart)
             tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = lctQuest})
             tween:Play()
-            wait(1)
+            wait(1.5)
                 local quest = {
                     [1] = S,
                     [2] = Quest,
