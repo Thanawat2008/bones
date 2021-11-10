@@ -2,7 +2,7 @@ repeat wait()
 until game:IsLoaded()
 
 if game.PlaceId ~= 2753915549 then
-    game.Players.LocalPlayer:Kick("You must go to First Sea!")
+    game.Players.LocalPlayer:Kick("You need to go to First Sea!")
 end
 
 weapon = {}
@@ -126,7 +126,7 @@ TextColor = Color3.fromRGB(255, 255, 255)
 }
 
 -- first page
-local page = venyx:addPage("Auto Farm    ", 0)
+local page = venyx:addPage("Auto Farm", 0)
 local section1 = page:addSection("Main")
 section1:addToggle("Auto Farm Bones", nil, function(farm)
     _G.AutoFarm_Bones = farm
@@ -158,4 +158,12 @@ end)
 section1:addSlider("Modes ( 1 : Behind / 2 : Over ) ( Pick before auto farm )", 0, 1, 2, function(modes)
     Modes = modes
         TP2()
+end)
+
+local page2 = venyx:addPage("Settings", 0)
+local section3 = page2:addSection("Toggle Keybind")
+section3:addKeybind("Toggle Keybind", Enum.KeyCode.RightControl, function()
+    venyx:toggle()
+end, function()
+    print("Change")
 end)
