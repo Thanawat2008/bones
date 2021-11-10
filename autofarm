@@ -2,7 +2,7 @@ repeat wait()
 until game:IsLoaded()
 
 if game.PlaceId ~= 2753915549 then
-    game.Players.LocalPlayer:Kick("You need to go to First Sea!")
+    game.Players.LocalPlayer:Kick("You must go to First Sea!")
 end
 
 weapon = {}
@@ -60,6 +60,9 @@ if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                             elseif Modes == 2 then
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,20,0)
                             end
+                                if v.Humanoid.Health == 0 or e.Humanoid.Health == 0 then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lctRest
+                                end
                     end 
                 end
             end
