@@ -13,7 +13,7 @@ repeat wait()
             world3 = true
         end
 
-function click()
+function AC()
     local vu = game:GetService'VirtualUser'
     local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
     if q.Visible == true then
@@ -22,7 +22,7 @@ function click()
     end
 end
 
-function checkquest()
+function CQ()
     local lv = game.Players.LocalPlayer.Data.Level.Value
     local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
     if world1 then
@@ -33,14 +33,14 @@ function checkquest()
             S = "StartQuest"
             lctQuest = CFrame.new(1061.66699, 16.5166187, 1544.52905, -0.942978859, -3.33851502e-09, 0.332852632, 7.04340497e-09, 1, 2.99841325e-08, -0.332852632, 3.06188177e-08, -0.942978859)
             posQuest = Vector3.new(1061.66699, 16.5166187, 1544.52905, -0.942978859, -3.33851502e-09, 0.332852632, 7.04340497e-09, 1, 2.99841325e-08, -0.332852632, 3.06188177e-08, -0.942978859)
-        elseif lv == 10 or lv <= 14 then
+        elseif lv == 10 or lv <= 19 then
             Mob = "Monkey [Lv. 14]"
             Quest = "JungleQuest"
             LvQuest = 1
             S = "StartQuest"
             lctQuest = CFrame.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
             posQuest = Vector3.new(-1604.12012, 36.8521118, 154.23732, 0.0648873374, -4.70858913e-06, -0.997892559, 1.41431883e-07, 1, -4.70933674e-06, 0.997892559, 1.64442184e-07, 0.0648873374)
-        elseif lv == 15 or lv <= 29 then
+        elseif lv == 20 or lv <= 29 then
             Mob = "Gorilla [Lv. 20]"
             Quest = "JungleQuest"
             LvQuest = 2
@@ -105,7 +105,6 @@ function checkquest()
             lctQuest = CFrame.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
         elseif lv == 175 or lv <= 224 then
             Mob = "Dark Master [Lv. 175]"
-            Quest = "SkyQuest"
             LvQuest = 2
             S = "StartQuest"
             posQuest = Vector3.new(-4841.83447, 717.669617, -2623.96436, -0.875942111, 5.59710216e-08, -0.482416272, 3.04023082e-08, 1, 6.08195947e-08, 0.482416272, 3.86078725e-08, -0.875942111)
@@ -131,27 +130,13 @@ function checkquest()
             S = "StartQuest"
             posQuest = Vector3.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
             lctQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
-        elseif lv == 330 or lv <= 374 then
+        elseif lv == 330 or lv <= 449 then
             Mob = "Military Spy [Lv. 330]"
             Quest = "MagmaQuest"
             LvQuest = 2
             S = "StartQuest"
             posQuest = Vector3.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
             lctQuest = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
-        elseif lv == 375 or lv <= 399 then
-            Mob = "Fishman Warrior [Lv. 375]"
-            Quest = "FishmanQuest"
-            LvQuest = 1
-            S = "StartQuest"
-            posQuest = Vector3.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
-            lctQuest = CFrame.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
-        elseif lv == 400 or lv <= 449 then
-            Mob = "Fishman Commando [Lv. 400]"
-            Quest = "FishmanQuest"
-            LvQuest = 2
-            S = "StartQuest"
-            posQuest = Vector3.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
-            lctQuest = CFrame.new(61123.1875, 18.471632, 1569.69873, 0.970235825, 0, 0.242162272, -0, 1.00000012, -0, -0.242162272, 0, 0.970235825)
         elseif lv == 450 or lv <= 474 then
             Mob = "God's Guard [Lv. 450]"
             Quest = "SkyExp1Quest"
@@ -187,7 +172,7 @@ function checkquest()
             S = "StartQuest"
             posQuest = Vector3.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
             lctQuest = CFrame.new(5254.60156, 38.5011406, 4049.69678, -0.0504891425, -3.62066501e-08, -0.998724639, -9.87921389e-09, 1, -3.57534553e-08, 0.998724639, 8.06145284e-09, -0.0504891425)
-        elseif lv >= 650 then
+        elseif lv >= 650 or lv <= 2100 then
             Mob = "Galley Captain [Lv. 650]"
             Quest = "FountainQuest"
             LvQuest = 2
@@ -198,82 +183,82 @@ function checkquest()
     end
 end
 
-checkquest()
-
 function TP(P1,P2)
-checkquest()
-game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
     local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance < 250 then
+    if Distance < 300 then
         Speed = 25000
-    elseif Distance >= 250 then
+    elseif Distance >= 300 then
         Speed = 250
     end
-    local cooldown = Distance/Speed
     game:GetService("TweenService"):Create(
         game.Players.LocalPlayer.Character.HumanoidRootPart,
         TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
-        {CFrame = P2}
-    ):Play()
+        {CFrame = P2}):Play()
 end
 
-function autoQ()
-local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
-    checkquest()
-        if q.Visible == false then
-            pcall(function()
-            TP(posQuest, lctQuest)
-                if game.Players.LocalPlayer.Character.HumanoidRootPart.Position == posQuest then
-                    wait(.5)
-                    local args = {
-                        [1] = S,
-                        [2] = Quest,
-                        [3] = LvQuest
-                    }
-
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-            end)
-
-        end
-end
-
-function Mobs()
-local mob = game:GetService("Workspace").Enemies:GetChildren()
-if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-    pcall(function()
-    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-            for i, v in pairs(mob) do
-                for l, e in pairs(mob) do
-                        if v.Name == Mob then
-                            if e.Name == Mob then
-                                    e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-                                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                                    e.HumanoidRootPart.CanCollide = false
-                                    v.HumanoidRootPart.CanCollide = false
-                                    v.Humanoid.WalkSpeed = 1
-                                    e.Humanoid.WalkSpeed = 1
-                                    v.HumanoidRootPart.Size = Vector3.new(100,100,100)
-                                    e.HumanoidRootPart.Size = Vector3.new(100,100,100)
-                                    TP(v.HumanoidRootPart.Position, v.HumanoidRootPart.CFrame * CFrame.new(0,20,20))
+function MOBS()
+CQ()
+local M = game.Workspace.Enemies:GetChildren()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                for a, e in pairs(M) do
+                    for i, v in pairs(M) do
+                        if e.Name == Mob then
+                            if v.Name == Mob then
+                                e.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                                sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                e.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                e.HumanoidRootPart.CanCollide = false
+                                TP(v.HumanoidRootPart.Position, v.HumanoidRootPart.CFrame * CFrame.new(0,25,10))
                             end
                         end
+                    end
                 end
-            end
-    end)
-end
+    end
 end
 
-function Mobs2()
-    local mob2 = game:GetService("ReplicatedStorage"):GetChildren()
-        for ii, vv in pairs(mob2) do
-            if vv.Name == Mob then
-                TP(vv.HumanoidRootPart.Position, vv.HumanoidRootPart.CFrame * CFrame.new(0,20,20))
+function MOBS2()
+CQ()
+local M2 = game.ReplicatedStorage:GetChildren()
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+            for ii, vv in pairs(M2) do
+                if vv.Name == Mob then
+                    TP(vv.HumanoidRootPart.Position,vv.HumanoidRootPart.CFrame)
+                end
             end
+    end
+end
+
+function ABS()
+    if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+    else
+        local buso = {
+            [1] = "Buso"
+}
+
+    game.ReplicatedStorage.Remotes.CommF_:InvokeServer(unpack(buso))
+    end
+end
+
+function ATQ()
+CQ()
+    local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
+        if q.Visible == false then
+            TP(posQuest,lctQuest)
+                if game.Players.LocalPlayer.Character.HumanoidRootPart.Position == posQuest then
+                        wait(.5)
+                            local qu = {
+                                [1] = S,
+                                [2] = Quest,
+                                [3] = LvQuest,
+                            }
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(qu))
+                end
         end
 end
 
-function AutoEquip()
+function ATEQ()
     if game.Players.LocalPlayer.Backpack:FindFirstChild(_G.Select_Weapon) then
         local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(_G.Select_Weapon)
         wait(.4)
@@ -286,47 +271,14 @@ spawn(function()
         cam:Stop()
 end)
 
-function ABuso()
-    while _G.AutoFarm do wait()
-        if game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-            else
-                local args = {
-                    [1] = "Buso"
-                }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-        end
-    end
-end
-
-spawn(function()
-    while _G.AutoFarm do wait()
-        local args = {
-            [1] = "AddPoint",
-            [2] = "Melee",
-            [3] = 1
-        }
-
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-    end
-end)
-
-function antiTP()
-local q = game.Players.LocalPlayer.PlayerGui.Main.Quest
-    if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
-        v.Humanoid.Health = 0
-        wait(2)
-        q.Visible = false
-    end
-end
-
 while _G.AutoFarm do wait()
     pcall(function()
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-        ABuso()
-        AutoEquip()
-        Mobs()
-        Mobs2()
-        autoQ()
-        click()
+        AC()
+        CQ()
+        MOBS()
+        MOBS2()
+        ABS()
+        ATQ()
+        ATEQ()
     end)
 end
